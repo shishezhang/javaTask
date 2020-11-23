@@ -42,7 +42,7 @@ public class MoleDemo {
 
 
     void App(){
-
+        JFrame frame = new JFrame("自制打地鼠游戏");
         jp= new JPanel();
         bingjing = new JLabel();
         content1 = new JPanel();
@@ -54,37 +54,32 @@ public class MoleDemo {
         diglett = new JLabel();
         gameRecord = new JTextArea(4,170);
         gamelb = new JLabel("游戏记录");
-        content1.setSize(100,100);
-
-
-        JFrame frame = new JFrame("自制打地鼠游戏");
 
         frame.setSize(1024,720);
-
         frame.setLayout(new BorderLayout());
         java.net.URL background = MoleDemo.class.getResource("/resource/background.jpg");
         bingjing.setIcon(new ImageIcon(background));
+        content1.setBounds(0,0,800,720);
         content1.add(diglett);
         content1.add(bingjing);
 
 
+        content2.setBounds(824,0,185,720);
         content2.setLayout(new GridLayout(15,1,5,5));
         content2.add(start);
         content2.add(end);
         content2.add(countLB);
         content2.add(countNum);
         content2.add(gamelb);
+        gameRecord.setColumns(3);
         content2.add(gameRecord);
 
 
         jp.setLayout(null);
-        content1.setBounds(0,0,800,720);
-        content2.setBounds(824,0,185,720);
         jp.add(content1);
         jp.add(content2);
 
-//        frame.add(content1,BorderLayout.CENTER);
-//        frame.add(content2,BorderLayout.EAST);
+
         frame.setContentPane(jp);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -106,7 +101,7 @@ public class MoleDemo {
 
 //jar包内获取路劲
         java.net.URL paoURL = MoleDemo.class.getResource("/resource/pao.gif");
-        java.net.URL zaiURL = MoleDemo.class.getResource("/resource/pao.gif");
+        java.net.URL zaiURL = MoleDemo.class.getResource("/resource/zai.gif");
 
 //        开始游戏
         start.addMouseListener(new MouseAdapter() {
