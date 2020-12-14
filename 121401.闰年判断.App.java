@@ -1,8 +1,4 @@
-public static void main(String[] args) {
-        /***
-         * （1）若某个年份能被4整除但不能被100整除，则是闰年。
-         * （2）若某个年份能被400整除，则也是闰年。
-         */
+ public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean b = true;
         while (b){
@@ -11,12 +7,22 @@ public static void main(String[] args) {
             if (i==0){
                 System.out.println("系统已经退出！");
             }else{
-                boolean mark = (i%4==0 && i%100!=0) || i%400==0 ? true : false;
-                if (mark){
-                    System.out.println(i+"年是闰年");
+                if(i>0){
+                    boolean mark = (i%4==0 && i%100!=0) || i%400==0 ? true : false;
+                    if (mark){
+                        System.out.println("公元"+i+"年是闰年");
+                    }else{
+                        System.err.println("公元"+i+"年不是闰年");
+                    }
                 }else{
-                    System.err.println(i+"年不是闰年");
+                    boolean mark = Math.abs(i)%4==1 || Math.abs(i)%400==1 ? true : false;
+                    if (mark){
+                        System.out.println("公元前"+i+"年是闰年");
+                    }else{
+                        System.err.println("公元前"+i+"年不是闰年");
+                    }
                 }
+
             }
         }
     }
